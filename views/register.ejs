@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <%-include("./includes/header.ejs") %>
+
+    <main>
+      <section class="mt-32">
+        <form
+          method="post"
+          action="/register"
+          class="bg-[#ffffff] shadow-2xl py-10 px-8 w-6/12 mx-auto max-sm:w-11/12 rounded-xl"
+        >
+          <h1 class="text-3xl font-bold text-center mb-5">Register Here</h1>
+
+          <input
+            class="w-full p-2 pl-3 my-2 bg-[#f5f5f5] border-none outline-none rounded-md"
+            placeholder="Username"
+            type="text"
+            name="username"
+            required
+          />
+          <input
+            class="w-full p-2 pl-3 my-2 bg-[#f5f5f5] border-none outline-none rounded-md"
+            placeholder="E-mail"
+            type="email"
+            name="email"
+            required
+          />
+          <input
+            class="w-full p-2 pl-3 my-2 bg-[#f5f5f5] border-none outline-none rounded-md"
+            placeholder="Password"
+            type="password"
+            name="password"
+            required
+          />
+
+          <% if (error_msg) { %>
+          <p style="color: red"><%= error_msg %></p>
+          <% } %> <% if (error) { %>
+          <p style="color: red"><%= error %></p>
+          <% } %>
+
+          <button
+            type="submit"
+            class="bg-primary font-medium px-6 py-2 my-3 rounded-lg text-white duration-300 w-full"
+          >
+            Register
+          </button>
+          <p class="text-center">
+            Already have an account?
+            <a href="/login" class="font-medium text-primary duration-300"
+              >Login</a
+            >
+          </p>
+        </form>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Oswald:wght@200..700&family=Poppins&display=swap');
+
+
+:root{
+    --primary: #8D493A;
+    --light: #F8EDE3;
+    --dark: #D0B8A8;
+    --text: #202020;
+}
+
+*{
+    box-sizing: border-box;
+    -webkit-tap-highlight-color: #D0B8A850;
+}
+
+
+body{
+    background-color: var(--light);
+    margin-top: 90px; 
+}
+
+
+h1, h2, h3, h4, h5, h6{
+    font-family: Oswald ;
+}
+
+p, ul, li, span, input, select, textarea{
+    font-family: poppins;
+}
+
+
+
+@media(max-width:768px){
+
+    .menu-ul{
+        position: fixed;
+        padding: 70px 0 !important;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        flex-direction: column;
+        background-color: var(--dark);
+        transform: translateX(100%);
+        transition: all .3s ease-in-out;
+
+        li{
+          width: 100%;
+          
+          a{
+            display: block;
+            width: 100%;
+          }
+        }
+    }
+    
+    .open{
+        transform: translateX(0) !important;
+    }
+
+    .menu-icon{
+        display: block !important;
+        font-size: 22px;
+        font-weight: 600;
+        transition: all .3s ease-in-out;
+    }
+
+}
+
+
+.scroller {
+    max-width: 90%;
+    margin: auto;
+  }
+  
+  .scroller__inner {
+    padding-block: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+  
+  .scroller[data-animated="true"] {
+    overflow: hidden;
+    -webkit-mask: linear-gradient(
+      90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent
+    );
+    mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+  }
+  
+  .scroller[data-animated="true"] .scroller__inner {
+    width:max-content;
+    flex-wrap: nowrap;
+    animation: scroll var(--_animation-duration, 40s)
+      var(--_animation-direction, forwards) linear infinite;
+  }
+  
+  .scroller[data-direction="right"] {
+    --_animation-direction: reverse;
+  }
+  
+  .scroller[data-direction="left"] {
+    --_animation-direction: forwards;
+  }
+  
+  .scroller[data-speed="fast"] {
+    --_animation-duration: 20s;
+  }
+  
+  .scroller[data-speed="slow"] {
+    --_animation-duration: 60s;
+  }
+  
+  @keyframes scroll {
+    to {
+      transform: translate(calc(-50% - 0.5rem));
+    }
+  }
+
+  .ql-container.ql-snow{
+    border: 0;
+  }
+  .ql-toolbar.ql-snow{
+    background: var(--light) !important;
+    border-radius: 6px !important;
+    margin-bottom: -15px !important;
+    border: 0;
+    padding-bottom: 15px;
+    margin-top: 10px;
+  }
+
+  .single-right{
+
+    h2{
+      font-size: 1.8rem;
+    }
+    h3{
+      font-size: 1.5rem;
+    }
+
+    a{
+      color: var(--primary);
+      text-decoration: underline;
+    }
+
+    ul{
+      list-style:circle;
+    }
+  }

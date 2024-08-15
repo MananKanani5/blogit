@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="shortcut icon" href="/icon.png" type="image/x-icon">
+    <link rel="stylesheet" href="/styles/style.css" />
+    <link href="/styles/tailwind.css" rel="stylesheet">
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="menu flex items-center w-full h-[90px] px-16 max-sm:px-5 justify-between py-5 z-50 bg-light fixed top-0">
+        <div>
+            <h1 class="font-black text-3xl text-primary"><a href="/">Blogit.</a></h1>
+        </div>
+        <% if(!user) { %>
+          <ul class=" flex gap-6 menu-ul">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register" class="bg-primary text-white px-5 py-2 rounded-lg max-sm:bg-inherit max-sm:text-black">Register</a></li>
+          </ul>
+        <% } else { %>
+          <ul class=" flex items-center gap-6 menu-ul">
+            <li><a href="/create-blog"> Create Blog</a></li>
+            <li><a href="/blogs">Explore Blogs</a></li>
+            <li><a href="/my-blogs">Your Blogs</a></li>
+            <li><a href="/logout">Logout</a></li>
+            
+          </ul>
+        <% } %>
+        <a id="open-btn" href="#" class="hidden menu-icon"><i class="ri-menu-4-line new icon-menu"></i></a>
+    </div>
+    </div>
+
+    <script src="/scripts/main.js"></script>
+  </body>
+</html>
