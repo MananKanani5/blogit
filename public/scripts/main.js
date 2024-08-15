@@ -15,6 +15,8 @@ const body = document.body;
 const currentMode = localStorage.getItem("theme");
 if (currentMode === "dark") {
   body.classList.add("dark-mode");
+  toggleButtonIcon.classList.toggle("ri-moon-fill");
+  toggleButtonIcon.classList.toggle("ri-sun-fill");
 }
 
 toggleButton.addEventListener("click", () => {
