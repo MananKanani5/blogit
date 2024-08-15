@@ -1,6 +1,6 @@
 # Blogit
 
-Blogit is a blogging Web application developed by Manan Kanani. It allows users to create, edit, and manage blog posts with rich text formatting options using Quill.js. The application is built with Node.js, Express, MongoDB, and EJS as the template engine. Tailwind CSS is used for styling the frontend.
+Blogit is a blogging web application developed by Manan Kanani. It allows users to create, edit, and manage blog posts with rich text formatting options using Quill.js. The application is built with Node.js, Express, MongoDB, and EJS as the template engine. Tailwind CSS is used for styling the frontend.
 
 ## Features
 
@@ -10,6 +10,8 @@ Blogit is a blogging Web application developed by Manan Kanani. It allows users 
 - **Session Management**: Session handling with Express-session and MongoDB as the session store.
 - **Flash Messages**: Display flash messages for error and success notifications using connect-flash.
 - **Form Method Override**: Supports HTTP method override for forms (e.g., PUT, DELETE).
+- **Dark Mode**: Dark mode functionality for a better user experience.
+- **Image Uploading**: Image uploading functionality with multer, limiting the maximum file size to 1 MB.
 
 ## Tech Stack
 
@@ -23,12 +25,13 @@ Blogit is a blogging Web application developed by Manan Kanani. It allows users 
 - Sign up or log in to create and manage your blog posts.
 - Format your content with the integrated Quill.js editor.
 - View and edit existing blog posts.
+- Use the dark mode feature for a more personalized experience.
+- Upload images with a maximum size of 1 MB for your blog posts.
 
 ## Future Updates
 
-1. Direct image uploading rather than using an image URL.
-2. Comment functionality for blog posts.
-3. Additional features like read time estimation, a progress bar for blog posts, and dark mode.
+1. Comment functionality for blog posts.
+2. Additional features like read time estimation and a progress bar for blog posts.
 
 ## Author
 
