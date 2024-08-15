@@ -5,6 +5,7 @@ const methodOverride = require("method-override");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
 const multer = require("multer");
+const compression = require("compression");
 const passport = require("passport");
 const flash = require("connect-flash");
 const sanitizeHtml = require("sanitize-html");
@@ -16,7 +17,11 @@ const passportConfig = require("./utility/passport.js");
 const upload = require("./utility/multer.js");
 
 app.set("view engine", "ejs");
-app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  express.static(path.join(__dirname, "public"), {
+    maxAge: "1d",
+  })
+);
 app.use(
   "/data/uploads",
   express.static(path.join(__dirname, "public/data/uploads"))
@@ -35,6 +40,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 passportConfig(passport);
 app.use(flash());
+app.use(compression());
 
 app.use((req, res, next) => {
   res.locals.user = req.user;
