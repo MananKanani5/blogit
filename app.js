@@ -3,6 +3,7 @@ const path = require("path");
 require("dotenv").config();
 const methodOverride = require("method-override");
 const session = require("express-session");
+const MongoStore = require("connect-mongo");
 const passport = require("passport");
 const flash = require("connect-flash");
 const sanitizeHtml = require("sanitize-html");
@@ -18,9 +19,10 @@ app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(
   session({
-    secret: "secret",
+    secret: process.env.secret,
     resave: false,
     saveUninitialized: false,
+    store: MongoStore.create({ mongoUrl: process.env.MONGO_DB_URL }),
   })
 );
 app.use(passport.initialize());
