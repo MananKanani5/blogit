@@ -5,9 +5,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx tailwindcss -i ./public/styles/style.css -o ./public/styles/tailwind.css",
-    "start": "node app.js",
-    "dev": "nodemon app.js"
+    "build": "npx tailwindcss -i ./public/styles/style.css -o ./public/styles/tailwind.css"
   },
   "author": "Manan Kanani",
   "license": "ISC",
