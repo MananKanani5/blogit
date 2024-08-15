@@ -9,6 +9,18 @@
     --light: #F8EDE3;
     --dark: #D0B8A8;
     --text: #202020;
+    --white: #ffffff;
+    --form: #f5f5f5;
+  }
+  
+  
+  .dark-mode {
+    --primary: #8D493A;
+    --light: #120000;
+    --dark: #684242;
+    --text: #b6b6b6;
+    --white: #2c1212;
+    --form: #120000;
 }
 
 *{
@@ -20,6 +32,11 @@
 body{
     background-color: var(--light);
     margin-top: 90px; 
+    color: var(--text);
+}
+
+.bg-white{
+  background-color: var(--white) !important;
 }
 
 
@@ -31,6 +48,12 @@ p, ul, li, span, input, select, textarea{
     font-family: poppins;
 }
 
+
+#darkModeToggle{
+  position: absolute;
+  right: 18%;
+  font-size: 20px;
+}
 
 
 @media(max-width:768px){
@@ -67,6 +90,10 @@ p, ul, li, span, input, select, textarea{
         font-size: 22px;
         font-weight: 600;
         transition: all .3s ease-in-out;
+    }
+
+    #darkModeToggle{
+      right: 20%;
     }
 
 }

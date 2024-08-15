@@ -14,10 +14,11 @@
         <div>
             <h1 class="font-black text-3xl text-primary"><a href="/">Blogit.</a></h1>
         </div>
+        <button id="darkModeToggle"><i class="ri-sun-fill"></i></button>
         <% if(!user) { %>
           <ul class=" flex gap-6 menu-ul">
             <li><a href="/login">Login</a></li>
-            <li><a href="/register" class="bg-primary text-white px-5 py-2 rounded-lg max-sm:bg-inherit max-sm:text-black">Register</a></li>
+            <li><a href="/register" class="bg-primary text-white px-5 py-2 rounded-lg max-sm:bg-inherit max-sm:text-text">Register</a></li>
           </ul>
         <% } else { %>
           <ul class=" flex items-center gap-6 menu-ul">

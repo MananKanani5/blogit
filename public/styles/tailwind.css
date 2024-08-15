@@ -757,33 +757,23 @@ video {
 }
 
 .border-primary {
-  --tw-border-opacity: 1;
-  border-color: rgb(141 73 58 / var(--tw-border-opacity));
-}
-
-.bg-\[\#f5f5f5\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(245 245 245 / var(--tw-bg-opacity));
-}
-
-.bg-\[\#ffffff\] {
-  --tw-bg-opacity: 1;
-  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+  border-color: var(--primary);
 }
 
 .bg-dark {
-  --tw-bg-opacity: 1;
-  background-color: rgb(208 184 168 / var(--tw-bg-opacity));
+  background-color: var(--dark);
+}
+
+.bg-form {
+  background-color: var(--form);
 }
 
 .bg-light {
-  --tw-bg-opacity: 1;
-  background-color: rgb(248 237 227 / var(--tw-bg-opacity));
+  background-color: var(--light);
 }
 
 .bg-primary {
-  --tw-bg-opacity: 1;
-  background-color: rgb(141 73 58 / var(--tw-bg-opacity));
+  background-color: var(--primary);
 }
 
 .bg-white {
@@ -856,8 +846,8 @@ video {
   padding-right: 1.75rem;
 }
 
-.pt-14 {
-  padding-top: 3.5rem;
+.pt-10 {
+  padding-top: 2.5rem;
 }
 
 .text-center {
@@ -910,8 +900,7 @@ video {
 }
 
 .text-primary {
-  --tw-text-opacity: 1;
-  color: rgb(141 73 58 / var(--tw-text-opacity));
+  color: var(--primary);
 }
 
 .text-red-600 {
@@ -953,6 +942,17 @@ video {
   --light: #F8EDE3;
   --dark: #D0B8A8;
   --text: #202020;
+  --white: #ffffff;
+  --form: #f5f5f5;
+}
+
+.dark-mode {
+  --primary: #8D493A;
+  --light: #120000;
+  --dark: #684242;
+  --text: #b6b6b6;
+  --white: #2c1212;
+  --form: #120000;
 }
 
 *{
@@ -963,6 +963,11 @@ video {
 body{
   background-color: var(--light);
   margin-top: 90px;
+  color: var(--text);
+}
+
+.bg-white{
+  background-color: var(--white) !important;
 }
 
 h1, h2, h3, h4, h5, h6{
@@ -971,6 +976,12 @@ h1, h2, h3, h4, h5, h6{
 
 p, ul, li, span, input, select, textarea{
   font-family: poppins;
+}
+
+#darkModeToggle{
+  position: absolute;
+  right: 18%;
+  font-size: 20px;
 }
 
 @media(max-width:768px){
@@ -1004,6 +1015,10 @@ p, ul, li, span, input, select, textarea{
     font-size: 22px;
     font-weight: 600;
     transition: all .3s ease-in-out;
+  }
+
+  #darkModeToggle{
+    right: 20%;
   }
 }
 
@@ -1157,8 +1172,7 @@ p, ul, li, span, input, select, textarea{
     line-height: 1;
   }
 
-  .max-sm\:text-black {
-    --tw-text-opacity: 1;
-    color: rgb(0 0 0 / var(--tw-text-opacity));
+  .max-sm\:text-text {
+    color: var(--text);
   }
 }
