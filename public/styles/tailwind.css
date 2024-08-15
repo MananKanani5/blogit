@@ -627,10 +627,6 @@ video {
   margin-top: 3rem;
 }
 
-.mt-20 {
-  margin-top: 5rem;
-}
-
 .mt-3 {
   margin-top: 0.75rem;
 }
@@ -645,10 +641,6 @@ video {
 
 .mt-8 {
   margin-top: 2rem;
-}
-
-.mt-24 {
-  margin-top: 6rem;
 }
 
 .flex {
@@ -802,10 +794,6 @@ video {
 .object-cover {
   -o-object-fit: cover;
      object-fit: cover;
-}
-
-.p-10 {
-  padding: 2.5rem;
 }
 
 .p-2 {
@@ -1088,6 +1076,9 @@ p, ul, li, span, input, select, textarea{
 
 .single-right{
   h2{
+    font-size: 1.8rem;
+  }
+  h3{
     font-size: 1.5rem;
   }
   a{
