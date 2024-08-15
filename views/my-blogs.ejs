@@ -15,8 +15,15 @@
       </section>
 
       <section class="w-11/12 mx-auto mt-12">
-        <div class="flex flex-col gap-8">
-          <% for(blog of blogs) { %>
+        <div class="flex flex-col items-center gap-8">
+          <% if(blogs.length == 0) {%>
+          <p class="text-center">You haven't posted any blog yet</p>
+          <a
+            href="/create-blog"
+            class="bg-primary text-white text-center max-w-fit px-5 py-2 rounded-lg"
+            >Create Blog Now</a
+          >
+          <% } %> <% for(blog of blogs) { %>
           <div
             href="/blogs/<%=blog.id%>"
             class="item flex bg-white rounded-lg p-5 pr-6 gap-5 hover:shadow-2xl duration-300 items-center max-sm:flex-col"
