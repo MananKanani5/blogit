@@ -24,6 +24,12 @@ Blogit is a blogging Web application developed by Manan Kanani. It allows users 
 - Format your content with the integrated Quill.js editor.
 - View and edit existing blog posts.
 
+## Future Updates
+
+1. Direct image uploading rather than using an image URL.
+2. Comment functionality for blog posts.
+3. Additional features like read time estimation, a progress bar for blog posts, and dark mode.
+
 ## Author
 
 Developed by [Manan Kanani](https://manankanani.in)
