@@ -17,6 +17,7 @@
           method="post"
           action="/blogs"
           class="bg-white shadow-2xl py-10 px-8 w-6/12 mx-auto max-sm:w-11/12 rounded-xl"
+          enctype="multipart/form-data"
         >
           <h1 class="text-3xl font-bold text-center mb-5">Create New Blog</h1>
   
@@ -46,12 +47,13 @@
           <option value="sports">Sports</option>
           <option value="others">Other</option>
           <input
-            class="w-full p-2 pl-3 my-2 bg-form border-none outline-none rounded-md"
-            placeholder="enter Image Url"
-            type="text"
+          class="w-full p-2 pl-3 my-2 bg-form rounded-md outline-none file:bg-dark file:text-white file:py-2 file:px-4 file:rounded-md file:border-0 file:cursor-pointer"
+            type="file"
             name="image"
+            accept="image/*"
             required
           />
+          <small class="w-full block text-right">*The image should be under 1 MB.</small>
           <div id="editor-container" class="w-full p-2 pl-3 my-2 bg-form rounded-md"></div>
           <textarea
             name="content"

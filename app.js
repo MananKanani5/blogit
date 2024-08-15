@@ -4,6 +4,7 @@ require("dotenv").config();
 const methodOverride = require("method-override");
 const session = require("express-session");
 const MongoStore = require("connect-mongo");
+const multer = require("multer");
 const passport = require("passport");
 const flash = require("connect-flash");
 const sanitizeHtml = require("sanitize-html");
@@ -11,10 +12,15 @@ const app = express();
 
 const mongoConnection = require("./connection.js");
 const { User, Blog } = require("./models/users.js");
-const passportConfig = require("./utility/passport");
+const passportConfig = require("./utility/passport.js");
+const upload = require("./utility/multer.js");
 
 app.set("view engine", "ejs");
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  "/data/uploads",
+  express.static(path.join(__dirname, "public/data/uploads"))
+);
 app.use(express.urlencoded({ extended: true }));
 app.use(methodOverride("_method"));
 app.use(
@@ -85,8 +91,15 @@ app.get("/blogs/:id", async (req, res) => {
   res.render("singleBlog", { blog, relatedblogs: sanitizedBlogs });
 });
 
-app.post("/blogs", async (req, res) => {
-  const { title, category, image, content } = req.body;
+app.post("/blogs", upload.single("image"), async (req, res) => {
+  if (req.file.size > 600 * 1024) {
+    req.flash("error_msg", "Image size should not exceed 600 KB.");
+    return res.redirect("/create-blog");
+  }
+
+  const { title, category, content } = req.body;
+  const image = req.file ? `/data/uploads/${req.file.filename}` : "";
+
   try {
     const newBlog = new Blog({
       userId: req.user._id,
@@ -122,18 +135,22 @@ app.delete("/blogs/:id", async (req, res) => {
   res.redirect("/my-blogs");
 });
 
-app.patch("/blogs/:id", async (req, res) => {
+app.patch("/blogs/:id", upload.single("image"), async (req, res) => {
   const { id } = req.params;
-  const { title, category, image, content } = req.body;
+  const { title, category, content } = req.body;
   try {
-    await Blog.findByIdAndUpdate(id, {
-      $set: {
-        title,
-        category,
-        image,
-        content,
-      },
-    });
+    const updateData = {
+      title,
+      category,
+      content,
+    };
+
+    if (req.file) {
+      updateData.image = `/data/uploads/${req.file.filename}`;
+    }
+
+    await Blog.findByIdAndUpdate(id, { $set: updateData });
+
     req.flash("success_msg", "Blog is updated Successfully");
     res.redirect("/my-blogs");
   } catch (err) {
@@ -188,6 +205,25 @@ app.get("/logout", (req, res, next) => {
     req.flash("success_msg", "You are logged out");
     res.redirect("/login");
   });
+});
+
+app.use((err, req, res, next) => {
+  const redirectUrl = req.body.edit
+    ? `/blogs/edit/${req.body.id}`
+    : "/create-blog";
+
+  if (err instanceof multer.MulterError) {
+    if (err.code === "LIMIT_FILE_SIZE") {
+      req.flash("error_msg", "Image size should not exceed 1 MB.");
+      return res.redirect(redirectUrl);
+    } else if (err.code === "LIMIT_UNEXPECTED_FILE") {
+      req.flash("error_msg", "Invalid file type.");
+      return res.redirect(redirectUrl);
+    }
+  } else {
+    req.flash("error_msg", "An error occurred during file upload.");
+    res.redirect(redirectUrl);
+  }
 });
 
 app.listen(process.env.PORT, () => {
