@@ -17,6 +17,7 @@ const passportConfig = require("./utility/passport.js");
 const upload = require("./utility/multer.js");
 
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 app.use(
   express.static(path.join(__dirname, "public"), {
     maxAge: "1d",
