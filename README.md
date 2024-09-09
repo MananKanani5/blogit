@@ -30,7 +30,7 @@ Blogit is a blogging web application developed by Manan Kanani. It allows users 
 
 ## Future Updates
 
-1. Comment functionality for blog posts.
+1. Comment and Rating functionality for blog posts.
 2. Additional features like read time estimation and a progress bar for blog posts.
 
 ## Author
