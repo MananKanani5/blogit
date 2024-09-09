@@ -11,9 +11,9 @@
     <link rel="shortcut icon" href="/icon.png" type="image/x-icon" />
   </head>
   <body>
-    <%-include("./includes/header.ejs") %>
-
-    <main>
+    <div id="loader"></div>
+    <main id="content">
+      <%-include("./includes/header.ejs") %>
       <section class="mt-32">
         <form
           method="post"
