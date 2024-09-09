@@ -1,3 +1,8 @@
+window.addEventListener("load", function () {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("content").style.display = "block";
+});
+
 let openBtn = document.querySelector("#open-btn");
 let menu = document.querySelector(".menu-ul");
 let icon = document.querySelector(".icon-menu");
